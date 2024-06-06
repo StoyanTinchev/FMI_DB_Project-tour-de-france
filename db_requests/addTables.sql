@@ -1,6 +1,3 @@
--- Create the Cyclists table
-
-
 -- Create the Teams table
 CREATE TABLE Teams (
     registration_number INT PRIMARY KEY,
@@ -8,6 +5,7 @@ CREATE TABLE Teams (
     country VARCHAR(50) NOT NULL
 );
 
+-- Create the Cyclists table
 CREATE TABLE Cyclists (
     registration_number INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
