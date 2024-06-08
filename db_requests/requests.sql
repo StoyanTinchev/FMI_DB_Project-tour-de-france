@@ -13,6 +13,7 @@ WHERE r.stage_number = 1;
 -- Взимане на всички колоездачи, сортирани по общо време за последния етап
 SELECT c.registration_number,
        c.name,
+       r.stage_time,
        r.stage_number,
        r.total_time
 FROM cyclist c
@@ -25,6 +26,7 @@ ORDER BY r.total_time;
 SELECT c.registration_number,
        c.name,
        r.stage_number,
+       r.stage_time,
        r.total_time
 FROM cyclist c
          JOIN

@@ -1,5 +1,6 @@
 package com.fmi.tourdefrance.controllers;
 
+import com.fmi.tourdefrance.DTO.CyclistDTO;
 import com.fmi.tourdefrance.services.CyclistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class CyclistController {
     private CyclistService cyclistService;
 
     @GetMapping("/team")
-    public List<Object[]> getCyclistsByTeam(@RequestParam String teamName) {
+    public List<CyclistDTO> getCyclistsByTeam(@RequestParam String teamName) {
         return cyclistService.getCyclistsByTeam(teamName);
     }
 }

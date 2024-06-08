@@ -13,13 +13,13 @@ public interface ResultRepository extends JpaRepository<Result, ResultId> {
             "FROM Cyclist c JOIN c.results r WHERE r.stage.number = ?1")
     List<Object[]> findCyclistTimesForStage(int stageNumber);
 
-    @Query("SELECT c.registrationNumber, c.name, r.stage.number, r.totalTime " +
+    @Query("SELECT c.registrationNumber, c.name, r.stage.number, r.stageTime, r.totalTime " +
             "FROM Cyclist c JOIN c.results r WHERE r.stage.number = " +
             "(SELECT MAX(sr.stage.number) FROM Result sr) " +
             "ORDER BY r.totalTime")
     List<Object[]> findCyclistsSortedByTotalTimeForLastStage();
 
-    @Query("SELECT c.registrationNumber, c.name, r.stage.number, r.totalTime " +
+    @Query("SELECT c.registrationNumber, c.name, r.stage.number, r.stageTime, r.totalTime " +
             "FROM Cyclist c JOIN c.results r WHERE r.stage.number = ?1 " +
             "ORDER BY r.totalTime")
     List<Object[]> findCyclistsSortedByTotalTimeForStage(int stageNumber);
